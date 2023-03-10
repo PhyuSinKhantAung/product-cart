@@ -3,6 +3,7 @@ import NavBar from "./components/Navbar";
 import Products from "./components/Products";
 import CompaniesButton from "./components/CompaniesButton";
 import CartContainerSideBar from "./components/CartContainerSideBar";
+import productsssss from "./db";
 
 function App() {
   const [maintainedProducts, setMaintainedProducts] = useState([]);
@@ -51,6 +52,8 @@ function App() {
 
   useEffect(() => {
     fetchData();
+    // setProducts(productsssss);
+    //   setMaintainedProducts(productsssss);
   }, []);
 
   const itemsFilteredHandler = (companyname) => {

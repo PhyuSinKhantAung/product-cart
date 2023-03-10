@@ -3,8 +3,8 @@ import { useGlobalContext } from "../assets/context";
 import Overlay from "./Overlay";
 
 const CartContainerSideBar = () => {
-  const { closeSideBar, cart, removeFromCartHandler } = useGlobalContext();
-
+  const { closeSideBar, cart, removeFromCartHandler,updatedCart } = useGlobalContext();
+  // added updatedCart to update the added boolean value when item removed from the cart 
   return (
     <Overlay>
       <div className="px-2 pt-2">
@@ -43,6 +43,8 @@ const CartContainerSideBar = () => {
               <button
                 className="block text-red-600"
                 onClick={() => {
+                  // updatedCart false for to show add to cart button
+                  updatedCart(item.id,false)
                   removeFromCartHandler(item.id);
                 }}
               >
