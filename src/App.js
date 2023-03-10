@@ -87,30 +87,22 @@ function App() {
   }
 
   return (
-    <main className="App">
+    <main>
       <AlertMessageModal></AlertMessageModal>
       <CartContainerSideBar></CartContainerSideBar>
-      <NavBar></NavBar>
-      <section>
-        <header className="text-center my-4">
-          <h1 className="text-2xl tracking-wider font-semibold text-slate-900">
-            Our Products
-          </h1>
-          <div className="w-10 h-1 bg-slate-400 mx-auto mt-1"></div>
-        </header>
-        <section className=" grid md:grid-cols-5 ">
-          <div className="  md:col-span-1 ">
-            {/* CompaniesButtons */}
-            <CompaniesButton
-              companies={companies}
-              filteredItems={itemsFilteredHandler}
-            ></CompaniesButton>
-          </div>
-          <div className="  md:col-span-4 md:grid md:grid-cols-3 gap-5 md:p-10 p-4">
-            {/* Products */}
-            <Products products={products}></Products>
-          </div>
-        </section>
+      <NavBar></NavBar>\
+      <section className=" grid md:grid-cols-5 py-2">
+        <div className="  md:col-span-1 ">
+          {/* CompaniesButtons */}
+          <CompaniesButton
+            companies={companies}
+            filteredItems={itemsFilteredHandler}
+          ></CompaniesButton>
+        </div>
+        <div className="  md:col-span-4 md:grid md:grid-cols-3 gap-5 md:p-10 p-4">
+          {/* Products */}
+          <Products products={products}></Products>
+        </div>
       </section>
     </main>
   );

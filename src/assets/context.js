@@ -129,7 +129,7 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "TOTAL" });
     const timeout = setTimeout(() => {
       closeAlert();
-    }, 2000);
+    }, 1000);
     return () => {
       clearTimeout(timeout);
     };
