@@ -1,6 +1,6 @@
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import { useGlobalContext } from "../assets/context";
-import Overlay from "./Overlay";
+import { Overlay } from "./Overlay";
 
 const CartContainerSideBar = () => {
   const {

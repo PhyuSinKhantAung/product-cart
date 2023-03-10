@@ -13,10 +13,29 @@ const SideBar = ({ children }) => {
     </aside>
   );
 };
+
+const AlertModal = ({ children }) => {
+  const { isAlertOpen } = useGlobalContext();
+  return (
+    <div
+      className={`${
+        isAlertOpen ? "block" : "hidden"
+      } fixed md:bottom-10 md:left-10 left-7 bottom-10 z-9 shadow-2xl bg-green-200 rounded-md`}
+    >
+      {children}
+    </div>
+  );
+};
 const portalElement = document.getElementById("overlays");
 
 const Overlay = ({ children }) => {
   return <>{createPortal(<SideBar>{children}</SideBar>, portalElement)}</>;
 };
 
-export default Overlay;
+const ModalOverlay = ({ children }) => {
+  return (
+    <>{createPortal(<AlertModal>{children}</AlertModal>, portalElement)}</>
+  );
+};
+
+export { Overlay, ModalOverlay };

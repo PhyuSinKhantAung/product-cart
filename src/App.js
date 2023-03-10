@@ -3,6 +3,7 @@ import NavBar from "./components/Navbar";
 import Products from "./components/Products";
 import CompaniesButton from "./components/CompaniesButton";
 import CartContainerSideBar from "./components/CartContainerSideBar";
+import AlertMessageModal from "./components/AlertMessageModal";
 
 function App() {
   const [maintainedProducts, setMaintainedProducts] = useState([]);
@@ -87,6 +88,7 @@ function App() {
 
   return (
     <main className="App">
+      <AlertMessageModal></AlertMessageModal>
       <CartContainerSideBar></CartContainerSideBar>
       <NavBar></NavBar>
       <section>

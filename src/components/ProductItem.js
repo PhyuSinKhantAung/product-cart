@@ -2,7 +2,7 @@ import { useGlobalContext } from "../assets/context";
 import React from "react";
 
 const ProductItem = ({ product }) => {
-  const { addToCartHandler } = useGlobalContext();
+  const { addToCartHandler, openAlert } = useGlobalContext();
 
   return (
     <div key={product.id} className="shadow my-10 md:my-0">

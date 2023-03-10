@@ -91,6 +91,7 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
 
   const openSideBar = () => {
     setIsSideBarOpen(true);
@@ -100,8 +101,17 @@ const AppProvider = ({ children }) => {
     setIsSideBarOpen(false);
   };
 
+  const openAlert = () => {
+    setIsAlertOpen(true);
+  };
+
+  const closeAlert = () => {
+    setIsAlertOpen(false);
+  };
+
   const addToCartHandler = (item) => {
     dispatch({ type: "ADD", payload: item });
+    openAlert();
   };
 
   const removeFromCartHandler = (id) => {
@@ -117,6 +127,12 @@ const AppProvider = ({ children }) => {
   };
   useEffect(() => {
     dispatch({ type: "TOTAL" });
+    const timeout = setTimeout(() => {
+      closeAlert();
+    }, 2000);
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [state.cart]);
 
   return (
@@ -124,8 +140,11 @@ const AppProvider = ({ children }) => {
       value={{
         ...state,
         isSideBarOpen,
+        isAlertOpen,
         openSideBar,
         closeSideBar,
+        openAlert,
+        closeAlert,
         addToCartHandler,
         removeFromCartHandler,
         increaseItemHandler,
