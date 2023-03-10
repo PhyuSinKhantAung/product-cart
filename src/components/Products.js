@@ -6,7 +6,6 @@ const Products = ({ products }) => {
     <>
       {products.map((product, index) => (
         <ProductItem
-          products={products}
           product={product}
           index={index}
           key={product.id}

@@ -3,7 +3,14 @@ import { useGlobalContext } from "../assets/context";
 import Overlay from "./Overlay";
 
 const CartContainerSideBar = () => {
-  const { closeSideBar, cart, removeFromCartHandler } = useGlobalContext();
+  const {
+    closeSideBar,
+    cart,
+    removeFromCartHandler,
+    total,
+    increaseItemHandler,
+    decreaseItemHandler,
+  } = useGlobalContext();
 
   return (
     <Overlay>
@@ -52,13 +59,13 @@ const CartContainerSideBar = () => {
           </div>
           <div className="col-span-1">
             <div className="text-xl flex flex-col justify-center items-center">
-              <button>
+              <button onClick={() => increaseItemHandler(item.id)}>
                 <FaCaretUp></FaCaretUp>
               </button>
               <div>
                 <h1>{item.quantity}</h1>
               </div>
-              <button>
+              <button onClick={() => decreaseItemHandler(item.id)}>
                 <FaCaretDown></FaCaretDown>
               </button>
             </div>
@@ -68,7 +75,7 @@ const CartContainerSideBar = () => {
 
       {/* Total part */}
       <div className="p-4 flex justify-center flex-col items-center">
-        <h1 className="text-2xl font-semibold italic">Total - ${12335509}</h1>
+        <h1 className="text-2xl font-semibold italic">Total - ${total}</h1>
         <button className="border w-5/6 my-2 bg-slate-500 text-white py-1">
           Check out
         </button>
